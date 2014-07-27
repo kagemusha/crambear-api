@@ -98,6 +98,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.3.2)
+    rolify (3.4.0)
     rspec-core (3.0.1)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.1)
@@ -158,6 +159,7 @@ DEPENDENCIES
   rack-cors
   rails (= 4.1.0)
   rails_layout
+  rolify
   rspec-rails (~> 3.0.0)
   sqlite3
   thin
