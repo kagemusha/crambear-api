@@ -47,6 +47,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    doorkeeper (1.1.0)
+      railties (>= 3.1)
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
@@ -152,6 +154,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   devise
+  doorkeeper
   factory_girl_rails
   foreman
   pundit

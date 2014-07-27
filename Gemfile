@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'active_model_serializers'
 
+gem 'doorkeeper'
 gem 'devise'
 gem 'pundit'
 gem "rolify"
