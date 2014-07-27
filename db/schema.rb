@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727165307) do
+ActiveRecord::Schema.define(version: 20140727172851) do
+
+  create_table "card_sets", force: true do |t|
+    t.integer  "user_id"
+    t.boolean  "public"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cards", force: true do |t|
+    t.integer  "card_set_id"
+    t.string   "front"
+    t.string   "back"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "oauth_access_grants", force: true do |t|
     t.integer  "resource_owner_id", null: false
