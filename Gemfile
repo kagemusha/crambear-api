@@ -15,6 +15,8 @@ group :development do
 end
 group :development, :test do
   gem 'thin'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'factory_girl_rails'
 end
 group :production do
   gem 'unicorn'
