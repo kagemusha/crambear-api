@@ -19,5 +19,23 @@ module CrambearApi
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    unless Rails.env == "test"
+      config.middleware.insert_before "Rack::Lock", "Rack::Cors", :debug => true, :logger => Rails.logger do
+        allow do
+          origins '*'
+
+          resource '/cors',
+                   :headers => :any,
+                   :methods => [:post],
+                   :credentials => true,
+                   :max_age => 0
+
+          resource '*',
+                   :headers => :any,
+                   :methods => [:get, :post, :delete, :put, :options],
+                   :max_age => 0
+        end
+      end
+    end
   end
 end
