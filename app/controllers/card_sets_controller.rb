@@ -1,7 +1,7 @@
 class CardSetsController < ApplicationController
 
   def index
-    sets = CardSet.where(public: true)
+    sets = CardSet.where(public: true).includes("cards")
     render json: sets
   end
 
