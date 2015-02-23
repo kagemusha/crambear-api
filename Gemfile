@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
-gem 'rails', '4.1.0'
+ruby '2.2.0'
+gem 'rails', '4.2.0'
 gem 'sqlite3'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'active_model_serializers'
