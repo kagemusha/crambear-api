@@ -3,7 +3,8 @@ ruby '2.2.0'
 gem 'rails', '4.2.0'
 gem 'sqlite3'
 gem 'rack-cors', :require => 'rack/cors'
-gem 'active_model_serializers'
+gem "active_model_serializers", github: "rails-api/active_model_serializers", branch: "0-8-stable"
+#gem 'active_model_serializers', git: 'git@github.com:rails-api/active_model_serializers.git'
 
 gem 'doorkeeper'
 gem 'devise'
