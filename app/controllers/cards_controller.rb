@@ -6,8 +6,8 @@ class CardsController < ApplicationController
   end
 
   def show
-    set = CardSet.find(params[:id])
-    render json: set
+    card = Card.find(params[:id])
+    render json: card
   end
 
 end
