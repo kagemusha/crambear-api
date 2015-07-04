@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :card_sets, only: [:index, :show] do
+  resources :card_sets do
     resources :cards, only: [:index, :show]
   end
 

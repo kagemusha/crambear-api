@@ -16,28 +16,28 @@ ActiveRecord::Schema.define(version: 20150223015939) do
   create_table "card_sets", force: :cascade do |t|
     t.integer  "user_id"
     t.boolean  "public"
-    t.string   "name",       limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "cards", force: :cascade do |t|
     t.integer  "card_set_id"
-    t.string   "front",       limit: 255
-    t.string   "back",        limit: 255
+    t.string   "front"
+    t.string   "back"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
-    t.integer  "resource_owner_id",             null: false
-    t.integer  "application_id",                null: false
-    t.string   "token",             limit: 255, null: false
-    t.integer  "expires_in",                    null: false
-    t.text     "redirect_uri",                  null: false
-    t.datetime "created_at",                    null: false
+    t.integer  "resource_owner_id", null: false
+    t.integer  "application_id",    null: false
+    t.string   "token",             null: false
+    t.integer  "expires_in",        null: false
+    t.text     "redirect_uri",      null: false
+    t.datetime "created_at",        null: false
     t.datetime "revoked_at"
-    t.string   "scopes",            limit: 255
+    t.string   "scopes"
   end
 
   add_index "oauth_access_grants", ["token"], name: "index_oauth_access_grants_on_token", unique: true
@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 20150223015939) do
   create_table "oauth_access_tokens", force: :cascade do |t|
     t.integer  "resource_owner_id"
     t.integer  "application_id"
-    t.string   "token",             limit: 255, null: false
-    t.string   "refresh_token",     limit: 255
+    t.string   "token",             null: false
+    t.string   "refresh_token"
     t.integer  "expires_in"
     t.datetime "revoked_at"
-    t.datetime "created_at",                    null: false
-    t.string   "scopes",            limit: 255
+    t.datetime "created_at",        null: false
+    t.string   "scopes"
   end
 
   add_index "oauth_access_tokens", ["refresh_token"], name: "index_oauth_access_tokens_on_refresh_token", unique: true
@@ -58,21 +58,21 @@ ActiveRecord::Schema.define(version: 20150223015939) do
   add_index "oauth_access_tokens", ["token"], name: "index_oauth_access_tokens_on_token", unique: true
 
   create_table "oauth_applications", force: :cascade do |t|
-    t.string   "name",         limit: 255,              null: false
-    t.string   "uid",          limit: 255,              null: false
-    t.string   "secret",       limit: 255,              null: false
-    t.text     "redirect_uri",                          null: false
+    t.string   "name",                      null: false
+    t.string   "uid",                       null: false
+    t.string   "secret",                    null: false
+    t.text     "redirect_uri",              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "scopes",                   default: "", null: false
+    t.string   "scopes",       default: "", null: false
   end
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name",          limit: 255
+    t.string   "name"
     t.integer  "resource_id"
-    t.string   "resource_type", limit: 255
+    t.string   "resource_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -81,19 +81,19 @@ ActiveRecord::Schema.define(version: 20150223015939) do
   add_index "roles", ["name"], name: "index_roles_on_name"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",                   limit: 255
+    t.string   "name"
     t.integer  "role"
   end
 
