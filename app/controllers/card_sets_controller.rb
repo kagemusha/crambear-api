@@ -7,7 +7,7 @@ class CardSetsController < ApplicationController
 
   def show
     set = CardSet.find(params[:id])
-    render json: sets, include: 'cards'
+    render json: set, include: 'cards'
   end
 
 end
