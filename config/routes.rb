@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   end
 
   use_doorkeeper
+  devise_for :users, :controllers => {:sessions => "sessions"}
+
+  get 'users/me', to: 'users#show'
+
   root to: 'visitors#index'
-  devise_for :users
 end

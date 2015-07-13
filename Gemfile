@@ -9,6 +9,9 @@ gem 'devise'
 gem 'pundit'
 gem "rolify"
 
+gem 'json'
+gem 'json-jwt'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20150223015939) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "auth_token"
     t.integer  "role"
   end
 

@@ -13,7 +13,7 @@ Doorkeeper.configure do
   end
 
   resource_owner_from_credentials do |routes|
-    request.params[:user] = {:email => request.params[:username], :password => request.params[:password]}
+    # expects request.params[:user] == {:email => 'some@email.com', :password => 'some-password'}
     request.env["devise.allow_params_authentication"] = true
     request.env["warden"].authenticate!(:scope => :user)
   end
