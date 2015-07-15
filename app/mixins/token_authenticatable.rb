@@ -47,8 +47,8 @@ module TokenAuthenticatable
     config['signing_key']
   end
 
-  def expiry_hours
-    config['expiry_hours']
+  def token_duration
+    config['token_duration']
   end
 
   def decode_auth_token
@@ -61,7 +61,7 @@ module TokenAuthenticatable
       sub: self.id
     }
 
-    claim[:exp] = (Time.now.utc + expiry_hours).to_i if expiry_hours
+    claim[:exp] = (Time.now.utc + token_duration).to_i if token_duration
     jwt         = JSON::JWT.new(claim).sign signing_key
     jwt.to_s
   end
