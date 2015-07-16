@@ -2,7 +2,8 @@ module TokenAuthentication
   extend ActiveSupport::Concern
 
   def current_user
-    @current_user ||= User.find_by_auth_token_and_validate(access_token)
+    token = access_token
+    @current_user ||= User.find_by_auth_token_and_validate(token)
   end
 
   def access_token
