@@ -4,10 +4,8 @@ Rails.application.routes.draw do
   #   resources :cards, only: [:index, :show]
   # end
 
-  jsonapi_resources :card_sets do
-    jsonapi_resources :cards
-  end
-
+  jsonapi_resources :card_sets
+  jsonapi_resources :cards
 
   use_doorkeeper
   devise_for :users, :controllers => {:sessions => "sessions"}
