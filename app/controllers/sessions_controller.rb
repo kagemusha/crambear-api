@@ -1,5 +1,6 @@
 class SessionsController < Devise::SessionsController
   include TokenAuthentication
+  include UserJson
 
   respond_to :json
 
@@ -8,14 +9,14 @@ class SessionsController < Devise::SessionsController
     if user && user.valid_password?(sign_in_params[:password])
       sign_in(resource_name, user)
       user.new_auth_token!
-      user_json = JSONAPI::ResourceSerializer.new(UserResource).serialize_to_hash(UserResource.new user)
-      render json: user_json
+      render json: get_user_json(user)
     else
       failure
     end
   end
 
   private
+
 
   def sign_in_params
     params.require(:user).permit(:email, :password)

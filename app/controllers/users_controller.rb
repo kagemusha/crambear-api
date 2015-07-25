@@ -1,16 +1,10 @@
 class UsersController < ApplicationController
   include TokenAuthentication
+  include UserJson
 
   def show
     current_user.new_auth_token!
-    userSerializer = JSONAPI::ResourceSerializer.new(
-       UserResource, include: ['card_sets'],
-       fields: {
-           cards_sets: [:name]
-       }
-    )
-    json = userSerializer.serialize_to_hash UserResource.new current_user
-    render json: json
+    render json: get_user_json(current_user)
   end
 
 end
