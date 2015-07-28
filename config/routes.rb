@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   jsonapi_resources :cards
 
   use_doorkeeper
-  devise_for :users, :controllers => {:sessions => "sessions"}
+  devise_for :users, :controllers => {:sessions => "sessions", :registrations => "registrations"}
 
   get 'users/me', to: 'users#show'
 
