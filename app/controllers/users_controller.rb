@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   include TokenAuthentication
-  include UserJson
 
   def show
     current_user.new_auth_token!

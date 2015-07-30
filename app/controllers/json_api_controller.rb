@@ -1,5 +1,5 @@
 class JsonApiController < ApplicationController
-  include JSONAPI::ActsAsResourceController
+  #include JSONAPI::ActsAsResourceController
 
   def context
     {current_user: current_user}

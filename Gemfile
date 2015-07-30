@@ -11,7 +11,6 @@ gem "rolify"
 
 gem 'json'
 gem 'json-jwt'
-gem 'jsonapi-resources'
 
 group :development do
   gem 'better_errors'
