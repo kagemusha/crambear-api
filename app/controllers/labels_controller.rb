@@ -1,0 +1,2 @@
+class LabelsController < JsonApiController
+end
