@@ -1,0 +1,2 @@
+class TagsController < JsonApiController
+end

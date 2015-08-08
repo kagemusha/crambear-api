@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :label do
+  factory :tag do
     
   end
 

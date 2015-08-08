@@ -29,16 +29,9 @@ ActiveRecord::Schema.define(version: 20150806161154) do
     t.datetime "updated_at"
   end
 
-  create_table "cards_labels", force: :cascade do |t|
-    t.integer "card_id",  null: false
-    t.integer "label_id", null: false
-  end
-
-  create_table "labels", force: :cascade do |t|
-    t.integer  "card_set_id"
-    t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "cards_tags", force: :cascade do |t|
+    t.integer "card_id", null: false
+    t.integer "tag_id",  null: false
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -91,6 +84,13 @@ ActiveRecord::Schema.define(version: 20150806161154) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "tags", force: :cascade do |t|
+    t.integer  "card_set_id"
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
