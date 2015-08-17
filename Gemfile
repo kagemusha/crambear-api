@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.0'
 gem 'rails', '4.2.0'
-gem 'sqlite3'
+gem 'pg'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'doorkeeper'
 gem 'devise'
