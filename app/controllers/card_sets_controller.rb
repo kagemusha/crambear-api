@@ -27,9 +27,10 @@ class CardSetsController < JsonApiController
 
   def get_json(data)
     setSerializer = JSONAPI::ResourceSerializer.new(
-        CardSetResource, include: ['cards'],
+        CardSetResource, include: ['cards', 'tags'],
         fields: {
-            cards: [:card_set, :front, :back]
+            cards: [:card_set, :front, :back],
+            tags:  [:card_set, :name]
         }
     )
     if data.kind_of?(Array)
