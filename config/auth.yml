@@ -1,3 +1,7 @@
 development:
   signing_key: "d32e2365078cc40d885aba1f7a8befbcef5f63b76bec4f547984a6b37852e785"
-  token_duration: <%= 1.hour %>
+  token_duration: <%= 1.week %>
+
+production:
+  signing_key: ENV['AUTH_KEY']
+  token_duration: <%= 1.week %>
