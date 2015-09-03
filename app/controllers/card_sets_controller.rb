@@ -3,7 +3,7 @@ class CardSetsController < JsonApiController
 
 
   def index
-    if current_user
+    if current_user && !params[:public]
       sets = current_user.card_sets.includes("cards")
     else
       sets = CardSet.where(public: true).includes("cards")
