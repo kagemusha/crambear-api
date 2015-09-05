@@ -14,7 +14,11 @@ class CardSetsController < JsonApiController
 
   def show
     set = CardSet.find(params[:id])
-    render json: get_json(set)
+    if set.public? || current_user == set.user
+      render json: get_json(set)
+    else
+      render json: {error: 'Forbidden'}, :status => 403
+    end
   end
 
 
