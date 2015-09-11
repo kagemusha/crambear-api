@@ -4,9 +4,9 @@ class CardSetsController < JsonApiController
 
   def index
     if current_user && !params[:public]
-      sets = current_user.card_sets.includes("cards")
+      sets = current_user.card_sets
     else
-      sets = CardSet.where(public: true).includes("cards")
+      sets = CardSet.where(public: true)
     end
     render json: get_json(sets.to_a)
   end
@@ -15,7 +15,7 @@ class CardSetsController < JsonApiController
   def show
     set = CardSet.find(params[:id])
     if set.public? || current_user == set.user
-      render json: get_json(set)
+      render json: get_json(set, true)
     else
       render json: {error: 'Forbidden'}, :status => 403
     end
@@ -29,9 +29,10 @@ class CardSetsController < JsonApiController
   end
 
 
-  def get_json(data)
+  def get_json(data, includeRelats=false)
+    included = includeRelats ? ['cards','tags'] : []
     setSerializer = JSONAPI::ResourceSerializer.new(
-        CardSetResource, include: ['cards', 'tags'],
+        CardSetResource, include: included,
         fields: {
             cards: [:card_set, :front, :back],
             tags:  [:card_set, :name]
