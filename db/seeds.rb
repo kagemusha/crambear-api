@@ -25,6 +25,7 @@ EMBER_CARDS = [
     ["How do you set a component's enclosing tag?","tagName property"],
     ["What's the new preferred way to write Ember.computed(someFunction).property('propA','propB')?", "Ember.computed('propA','propB', someFunction)"],
     ["What is Ember.$?", "An alias for jQuery: Ember.$ = jQuery;"],
+    ["What functions do you need to override to create a custom adapter?", "findRecord, createRecord, updateRecord, deleteRecord, findAll, query (and may want to override findMany for optimizations)"],
 ]
 
 
